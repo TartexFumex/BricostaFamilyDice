@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<save>
+  <version major="4" minor="0" revision="9" build="342"/>
+  <region id="Config">
+    <node id="ModuleInfo">
+      <attribute id="Name" type="LSString" value="LoaneMod"/>
+      <attribute id="UUID" type="FixedString" value="d4b5e8f2-3c6a-4f1e-9f7a-2b8e5c6d7a9b"/>
+      <attribute id="Version" type="LSInt" value="1"/>
+      <attribute id="PublishVersion" type="LSInt" value="1"/>
+      <attribute id="Folder" type="LSString" value="LoaneMod"/>
+      <attribute id="Type" type="LSString" value="Add-on"/>
+    </node>
+  </region>
+</save>
