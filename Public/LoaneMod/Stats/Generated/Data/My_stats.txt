@@ -1,0 +1,8 @@
+new entry "OBJ_LoaneDice"
+type "Object"
+using "OBJ_Food_Apple"
+data "RootTemplate" "c8617f7c-63f0-4ff9-a0cb-448c15af9780"
+data "ValueLevel" "10"
+data "ValueOverride" "500"
+data "Weight" "50"
+data "Rarity" "Legendary"
