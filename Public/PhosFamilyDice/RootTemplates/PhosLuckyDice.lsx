@@ -6,12 +6,12 @@
 			<children>
 				<node id="GameObjects">
 					<attribute id="MapKey" type="FixedString" value="c8617f7c-63f0-4ff9-a0cb-448c15af9780" />
-					<attribute id="Name" type="LSString" value="OBJ_LoaneDice" />
+					<attribute id="Name" type="LSString" value="OBJ_Phos_Lucky_Dice" />
 					<attribute id="Type" type="FixedString" value="item" />
 					
 					<attribute id="ParentTemplateId" type="FixedString" value="c9e45e5a-f089-480b-ab3a-7f5f76dccc3b" />
 
-                    <attribute id="Stats" type="FixedString" value="OBJ_LoaneDice" />
+                    <attribute id="Stats" type="FixedString" value="OBJ_Phos_Lucky_Dice" />
 					
 					<attribute id="DisplayName" type="TranslatedString" handle="h12345678g1234g1234g1234g123456789abc" version="1" />
                     <attribute id="Description" type="TranslatedString" handle="hd56ffd78g75f7g488agabb1g0d2d0ec0aa77" version="1" />
