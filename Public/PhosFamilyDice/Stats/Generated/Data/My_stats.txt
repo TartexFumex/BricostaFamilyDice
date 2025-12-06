@@ -1,8 +1,0 @@
-new entry "OBJ_Phos_Lucky_Dice"
-type "Armor"
-using "ARM_Ring_B"
-data "RootTemplate" "c8617f7c-63f0-4ff9-a0cb-448c15af9780"
-data "ValueOverride" "10000"
-data "Weight" "0.5"
-data "Rarity" "Legendary"
-data "Boosts" "RollBonus(Attack, 1);RollBonus(SavingThrow, 1);RollBonus(SkillCheck, 1)"
