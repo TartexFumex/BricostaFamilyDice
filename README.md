@@ -29,7 +29,7 @@ LoaneMod/
 >
 > On peut facilement générer les UUID/H-UUID (UUID pour les traduction) à partir de BG3 MM
 >
-> ![image-20251130160726546](.assets\README\image-20251130160726546.png)
+> ![image-20251130160726546](.assets/README/image-20251130160726546.png)
 
 ### `Mods/LoaneMod/meta.lsx`
 
