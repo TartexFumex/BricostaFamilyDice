@@ -137,9 +137,6 @@ Pour ajouter un modèle 3D personnalisé à l'objet PhosLuckyDice, deux fichiers
 | `Public/PhosFamilyDice/Assets/Item_LOOT_PhosLuckyDice_Model.xml` | Définition du modèle 3D (mesh, matériaux, UV mapping) |
 | `Public/PhosFamilyDice/Assets/Item_LOOT_PhosLuckyDice_Model.GR2` | Modèle 3D compilé au format GR2 (Granny 3D) |
 
-> [!important]
-> Les deux fichiers doivent avoir le **même nom de base** (`Item_LOOT_PhosLuckyDice_Model`) pour être correctement liés.
-
 #### Configuration dans `_merged.lsx`
 
 Le modèle 3D est référencé dans `Public/PhosFamilyDice/Content/UI/[PAK]_UI/_merged.lsx` via la région `VisualBank` :
@@ -156,18 +153,9 @@ Le modèle 3D est référencé dans `Public/PhosFamilyDice/Content/UI/[PAK]_UI/_
 #### Workflow de création du modèle 3D
 
 1. **Créer le modèle** dans Blender ou un autre logiciel 3D
-2. **Exporter en FBX/DAE** avec les UV maps et matériaux
-3. **Convertir en GR2** via LSLib Toolkit :
-   - Ouvrir l'onglet "GR2 Tools"
-   - Importer le fichier FBX/DAE
-   - Exporter en `.GR2`
+2. **Exporter en GR2** grâce à l'addon blender adéquat
 4. **Créer le fichier XML** décrivant le modèle (généré automatiquement par LSLib)
 5. **Mettre à jour `_merged.lsx`** avec les bonnes références
-
-> [!note]
-> Le fichier `.xml` contient la définition des meshes, bones et matériaux. Le fichier `.GR2` est le format binaire compilé utilisé par le moteur du jeu.
-
-
 
 ---
 
@@ -175,6 +163,14 @@ Le modèle 3D est référencé dans `Public/PhosFamilyDice/Content/UI/[PAK]_UI/_
 
 > [!tip]
 > On peut facilement générer les UUID/H-UUID (UUID pour les traductions) à partir de BG3 Modder's Multitool
+>
+> ![image-20251207161533775](.assets/README/image-20251207161533775.png)
+>
+> ![image-20251207161548597](.assets/README/image-20251207161548597.png)
+
+> [!IMPORTANT]
+>
+> Si la checkbox "handle" est cochée les UUID générées doivent être utilisées pour les traductions
 
 ### `Public/PhosFamilyDice/CustomDice/CustomDice.lsx`
 
