@@ -36,12 +36,15 @@ Un objet légendaire avec les caractéristiques suivantes :
 
 ```
 PhosFamilyDice/
+├── Generated/
+│   └── Public/PhosFamilyDice/assets/
+│       └── Collection.GR2              # Modèle 3D compilé
 ├── Mods/
 │   └── PhosFamilyDice/
 │       ├── meta.lsx                    # Métadonnées du mod
 │       ├── GUI/
 │       │   └── Assets/DiceSets/
-│       │       └── PhosDice/           # 🎲 Textures des dés
+│       │       └── PhosDice/           # Textures des dés
 │       │           ├── d20.DDS
 │       │           ├── d20_1.DDS ... d20_20.DDS
 │       │           ├── d20_faceCover.DDS
@@ -55,8 +58,15 @@ PhosFamilyDice/
 │   │   ├── ControllerUIIcons/items_png/
 │   │   └── Tooltips/ItemIcons/
 │   └── PhosFamilyDice/
-│       ├── CustomDice/CustomDice.lsx   # 🎲 Définition du set de dés
-│       ├── RootTemplates/merged.lsx    # 🍀 Template de l'objet
+│       ├── Assets/
+│       │   ├── Collection.xml          # Définition du modèle 3D
+│       │   └── Textures/Icons/         # Icône inventaire (atlas)
+│       ├── Content/UI/[PAK]_UI/
+│       │   └── _merged.lsx             # TextureBank + VisualBank
+│       ├── CustomDice/CustomDice.lsx   # Définition du set de dés
+│       ├── DLC/DLC.lsx                 # Définition du DLC
+│       ├── GUI/Icons_Items.lsx         # TextureAtlas des icônes
+│       ├── RootTemplates/merged.lsx    # Template de l'objet
 │       └── Stats/Generated/
 │           ├── TreasureTable.txt       # Table de loot
 │           └── Data/Armor.txt          # Stats de l'objet
@@ -70,7 +80,7 @@ PhosFamilyDice/
 ### Prérequis
 
 - **LSLib Toolkit** pour la compilation du mod et des fichier `*.lsx`
-- **BG3 Modder's Multitool** (pour extraire les templates)
+- **BG3 Modder's Multitool**
 - **NVIDIA Texture Tools** ou équivalent pour exporter en DDS
 
 ### Textures PhosDice (Set de Dés)
@@ -116,6 +126,24 @@ L'icône de l'objet se trouve dans trois emplacements :
 > [!tip]
 >
 > Les fichiers doivent tous avoir le même non au risque de ne pas avoir de texture en jeu
+
+### Textures 3D
+
+Pour ajouter un modèle 3D personnalisé à l'objet PhosLuckyDice :
+
+| Fichier | Description |
+|---------|-------------|
+| `Public/PhosFamilyDice/Assets/Collection.xml` | Définition du modèle 3D (mesh, matériaux) |
+| `Generated/Public/PhosFamilyDice/assets/Collection.GR2` | Modèle 3D compilé au format GR2 |
+
+Le modèle 3D est référencé dans `Public/PhosFamilyDice/Content/UI/[PAK]_UI/_merged.lsx` via la région `VisualBank` :
+- **ID** : `bb36583d-e193-4998-97dc-d132ace3da29`
+- **SourceFile** : `Generated/Public/PhosFamilyDice/assets/Collection.GR2`
+
+> [!note]
+> Le fichier est référencé dans `Public\PhosFamilyDice\Content\UI\[PAK]_UI\_merged.lsx`
+
+
 
 ---
 
@@ -176,7 +204,21 @@ Fichiers de **traduction** (Anglais/Français) :
 
 ## Compilation
 
+1. Cloner le dépôt
 
+2. Ouvrir Lslib Toolkit
+
+3. Convertir les fichiers de localisation:
+
+   ![image-20251207154723241](.assets/README/image-20251207154723241.png)
+
+4. Compiler les fichier de description comme sur l'image ci-dessous
+
+​	![image-20251207155021838](.assets/README/image-20251207155021838.png)
+
+5. Compiler ensuite le mod avec BG3 MM ou Lslib toolkit
+
+   ![image-20251207155055366](.assets/README/image-20251207155055366.png)
 
 ---
 
