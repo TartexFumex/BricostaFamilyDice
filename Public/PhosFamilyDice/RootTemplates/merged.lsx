@@ -14,6 +14,7 @@
                     <attribute id="Stats" type="FixedString" value="Item_LOOT_PhosLuckyDice" />
                     <attribute id="Type" type="FixedString" value="item" />
                     <attribute id="_OriginalFileVersion_" type="int64" value="144115188075855912" />
+                    <attribute id="VisualTemplate" type="FixedString" value="bb36583d-e193-4998-97dc-d132ace3da29" />
                     <children>
                         <node id="GameMaster" />
                     </children>

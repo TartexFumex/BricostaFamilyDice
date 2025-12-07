@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="7" revision="1" build="3" lslib_meta="v1,bswap_guids" />
+	<region id="VisualBank">
+		<node id="VisualBank">
+			<children>
+				<node id="Resource">
+					<attribute id="ID" type="FixedString" value="4a29fc3d-74d1-49f3-8fa2-d94cf5515517" />
+					<attribute id="Name" type="LSString" value="PhosLuckyDice" />
+					<attribute id="SourceFile" type="LSString" value="Public/PhosFamilyDice/PhosLuckyDice.GR2" />
+					<attribute id="Slot" type="FixedString" value="Unassigned" />
+					<children>
+						<node id="Objects">
+							<attribute id="ObjectID" type="FixedString" value="PhosLuckyDice.MeshName.0" />
+							<attribute id="MaterialID" type="FixedString" value="07f54c84-251a-4bad-99df-c20f754e8c3b" />
+							<attribute id="LOD" type="uint8" value="0" />
+						</node>
+					</children>
+				</node>
+			</children>
+		</node>
+	</region>
+</save>

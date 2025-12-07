@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<save>
+	<version major="4" minor="7" revision="1" build="3" lslib_meta="v1,bswap_guids" />
+	<region id="MaterialBank">
+		<node id="MaterialBank">
+			<children>
+				<node id="Resource">
+					<attribute id="ID" type="FixedString" value="07f54c84-251a-4bad-99df-c20f754e8c3b" />
+					<attribute id="Name" type="LSString" value="PhosLuckyDice_Material" />
+					<attribute id="SourceFile" type="LSString" value="Public/Shared/Assets/Materials/M_YOURMAT_A.lsf" />
+					<attribute id="MaterialType" type="uint8" value="0" />
+				</node>
+			</children>
+		</node>
+	</region>
+</save>
