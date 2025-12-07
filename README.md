@@ -36,9 +36,6 @@ Un objet légendaire avec les caractéristiques suivantes :
 
 ```
 PhosFamilyDice/
-├── Generated/
-│   └── Public/PhosFamilyDice/assets/
-│       └── Collection.GR2              # Modèle 3D compilé
 ├── Mods/
 │   └── PhosFamilyDice/
 │       ├── meta.lsx                    # Métadonnées du mod
@@ -56,11 +53,15 @@ PhosFamilyDice/
 ├── Public/
 │   ├── Game/GUI/Assets/                # Icônes de l'objet
 │   │   ├── ControllerUIIcons/items_png/
+│   │   │   └── Item_LOOT_PhosLuckyDice_Icon.DDS
 │   │   └── Tooltips/ItemIcons/
+│   │       └── Item_LOOT_PhosLuckyDice_Icon.DDS
 │   └── PhosFamilyDice/
 │       ├── Assets/
-│       │   ├── Collection.xml          # Définition du modèle 3D
-│       │   └── Textures/Icons/         # Icône inventaire (atlas)
+│       │   ├── Item_LOOT_PhosLuckyDice_Model.GR2   # Modèle 3D compilé
+│       │   ├── Item_LOOT_PhosLuckyDice_Model.xml   # Définition du modèle 3D
+│       │   └── Textures/Icons/
+│       │       └── PhosFamilyDice_Icons.dds        # Icône inventaire (atlas)
 │       ├── Content/UI/[PAK]_UI/
 │       │   └── _merged.lsx             # TextureBank + VisualBank
 │       ├── CustomDice/CustomDice.lsx   # Définition du set de dés
@@ -127,21 +128,44 @@ L'icône de l'objet se trouve dans trois emplacements :
 >
 > Les fichiers doivent tous avoir le même non au risque de ne pas avoir de texture en jeu
 
-### Textures 3D
+### Modèle 3D PhosLuckyDice
 
-Pour ajouter un modèle 3D personnalisé à l'objet PhosLuckyDice :
+Pour ajouter un modèle 3D personnalisé à l'objet PhosLuckyDice, deux fichiers sont nécessaires :
 
 | Fichier | Description |
 |---------|-------------|
-| `Public/PhosFamilyDice/Assets/Collection.xml` | Définition du modèle 3D (mesh, matériaux) |
-| `Generated/Public/PhosFamilyDice/assets/Collection.GR2` | Modèle 3D compilé au format GR2 |
+| `Public/PhosFamilyDice/Assets/Item_LOOT_PhosLuckyDice_Model.xml` | Définition du modèle 3D (mesh, matériaux, UV mapping) |
+| `Public/PhosFamilyDice/Assets/Item_LOOT_PhosLuckyDice_Model.GR2` | Modèle 3D compilé au format GR2 (Granny 3D) |
+
+> [!important]
+> Les deux fichiers doivent avoir le **même nom de base** (`Item_LOOT_PhosLuckyDice_Model`) pour être correctement liés.
+
+#### Configuration dans `_merged.lsx`
 
 Le modèle 3D est référencé dans `Public/PhosFamilyDice/Content/UI/[PAK]_UI/_merged.lsx` via la région `VisualBank` :
-- **ID** : `bb36583d-e193-4998-97dc-d132ace3da29`
-- **SourceFile** : `Generated/Public/PhosFamilyDice/assets/Collection.GR2`
+
+| Attribut | Valeur | Description |
+|----------|--------|-------------|
+| `ID` | `bb36583d-e193-4998-97dc-d132ace3da29` | UUID unique du visual |
+| `Name` | `Item_LOOT_PhosLuckyDice_Model` | Nom du modèle (sans extension) |
+| `SourceFile` | `Public/PhosFamilyDice/Assets/Item_LOOT_PhosLuckyDice_Model.GR2` | Chemin vers le fichier GR2 |
+| `Template` | `Public/PhosFamilyDice/Assets/Item_LOOT_PhosLuckyDice_Model.Unnamed.0` | Référence au template du mesh |
+| `ObjectID` | `Item_LOOT_PhosLuckyDice_Model.Cube.0` | ID de l'objet mesh dans le modèle |
+| `MaterialID` | `9e2966c7-b61c-4bc1-bef1-a79cb5fde067` | UUID du matériau appliqué |
+
+#### Workflow de création du modèle 3D
+
+1. **Créer le modèle** dans Blender ou un autre logiciel 3D
+2. **Exporter en FBX/DAE** avec les UV maps et matériaux
+3. **Convertir en GR2** via LSLib Toolkit :
+   - Ouvrir l'onglet "GR2 Tools"
+   - Importer le fichier FBX/DAE
+   - Exporter en `.GR2`
+4. **Créer le fichier XML** décrivant le modèle (généré automatiquement par LSLib)
+5. **Mettre à jour `_merged.lsx`** avec les bonnes références
 
 > [!note]
-> Le fichier est référencé dans `Public\PhosFamilyDice\Content\UI\[PAK]_UI\_merged.lsx`
+> Le fichier `.xml` contient la définition des meshes, bones et matériaux. Le fichier `.GR2` est le format binaire compilé utilisé par le moteur du jeu.
 
 
 
