@@ -1,0 +1,15 @@
+[20-12-2025 16:39:39:551][D:\Jenkins\workspace\Repo\FW4\Release\Stable\LSProjects\Apps\Gustav\Code\EoCServer\Server\GameStateMachine.cpp 65 esv::GameStateMachine::SetTargetState]: esv::GameStateQueued: Uninitialized
+
+[20-12-2025 16:39:39:551][D:\Jenkins\workspace\Repo\FW4\Release\Stable\LSProjects\Apps\Gustav\Code\EoCServer\Server\GameStateMachine.cpp 84 esv::GameStateMachine::Update]: SERVER STATE SWAP - from: Unknown, to: Uninitialized
+
+[20-12-2025 16:39:39:871][D:\Jenkins\workspace\Repo\FW4\Release\Stable\LSProjects\Apps\Gustav\Code\EoCClient\Client\GameStateMachine.cpp 130 ecl::GameStateMachine::SetTargetState]: ecl::GameStateQueued: InitMenu
+[20-12-2025 16:39:39:877][D:\Jenkins\workspace\Repo\FW4\Release\Stable\LSProjects\Apps\Gustav\Code\EoCClient\Client\GameStateMachine.cpp 130 ecl::GameStateMachine::SetTargetState]: ecl::GameStateQueued: StartLoading
+[20-12-2025 16:39:39:877][D:\Jenkins\workspace\Repo\FW4\Release\Stable\LSProjects\Apps\Gustav\Code\EoCClient\Client\GameStateMachine.cpp 130 ecl::GameStateMachine::SetTargetState]: ecl::GameStateQueued: Init
+[20-12-2025 16:39:39:877][D:\Jenkins\workspace\Repo\FW4\Release\Stable\LSProjects\Apps\Gustav\Code\EoCClient\Client\GameStateMachine.cpp 130 ecl::GameStateMachine::SetTargetState]: ecl::GameStateQueued: LoadPsoCache
+[20-12-2025 16:39:39:877][D:\Jenkins\workspace\Repo\FW4\Release\Stable\LSProjects\Apps\Gustav\Code\EoCClient\Client\GameStateMachine.cpp 130 ecl::GameStateMachine::SetTargetState]: ecl::GameStateQueued: LoadModule
+[20-12-2025 16:39:39:877][D:\Jenkins\workspace\Repo\FW4\Release\Stable\LSProjects\Apps\Gustav\Code\EoCClient\Client\GameStateMachine.cpp 130 ecl::GameStateMachine::SetTargetState]: ecl::GameStateQueued: LoadMenu
+[20-12-2025 16:39:39:877][D:\Jenkins\workspace\Repo\FW4\Release\Stable\LSProjects\Apps\Gustav\Code\EoCClient\Client\GameStateMachine.cpp 130 ecl::GameStateMachine::SetTargetState]: ecl::GameStateQueued: StopLoading
+[20-12-2025 16:39:39:877][D:\Jenkins\workspace\Repo\FW4\Release\Stable\LSProjects\Apps\Gustav\Code\EoCClient\Client\GameStateMachine.cpp 113 ecl::GameStateMachine::SetTargetStateAfterFade]: ecl::GameStateQueued: Menu after fade: FadeInFadeOut
+[20-12-2025 16:39:40:126][D:\Jenkins\workspace\Repo\FW4\Release\Stable\LSProjects\Apps\Gustav\Code\EoCClient\Client\GameStateMachine.cpp 248 ecl::GameStateMachine::Update]: CLIENT STATE SWAP - from: Unknown, to: InitMenu
+[20-12-2025 16:39:40:749][D:\Jenkins\workspace\Repo\FW4\Release\Stable\LSProjects\Apps\Gustav\Code\EoCClient\Client\GameStateMachine.cpp 248 ecl::GameStateMachine::Update]: CLIENT STATE SWAP - from: InitMenu, to: StartLoading
+[20-12-2025 16:39:42:027][D:\Jenkins\workspace\Repo\FW4\Release\Stable\LSProjects\Framework\Code\GameNet\PortMapperUPnP.cpp 109 net::PortMapperUPnP::Discover]: [NET] Discovery finished... a UPnP enabled router has been found
