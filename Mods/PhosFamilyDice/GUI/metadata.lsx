@@ -250,9 +250,9 @@
               <attribute id="MapKey" type="FixedString" value="Assets/DiceSets/PhosDice/single_roll.png"/>
               <children>
                 <node id="entries">
-                  <attribute id="h" type="int16" value="1280"/>
+                  <attribute id="h" type="int16" value="2048"/>
                   <attribute id="mipcount" type="int8" value="1"/>
-                  <attribute id="w" type="int16" value="1536"/>
+                  <attribute id="w" type="int16" value="2048"/>
                 </node>
               </children>
             </node>
