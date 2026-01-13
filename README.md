@@ -24,9 +24,9 @@ Un set complet de textures pour le dé d20 incluant :
 Un objet légendaire avec les caractéristiques suivantes :
 - **Rareté** : Légendaire
 - **Poids** : 0.5
-- **Valeur** : 4000 or
+- **Valeur** : 18000 or
 - **Effets** :
-  - `+1` aux jets de compétences (SkillCheck)
+  - `+2` aux jets de compétences (SkillCheck)
   - `+1` aux jets d'attaque (Attack)
   - `+1` aux jets de sauvegarde (SavingThrow)
 
