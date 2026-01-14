@@ -1,5 +1,3 @@
-[TOC]
-
 # PhosFamilyDice - Mod Baldur's Gate 3
 
 Ce mod ajoute deux fonctionnalités principales :
