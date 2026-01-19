@@ -1,0 +1,11 @@
+
+new entry "Item_LOOT_BricostaLuckyDice"
+type "item"
+using "ARM_Ring_Gold"
+data "RootTemplate" "308555cb-3b93-4243-b6df-b8cca02d335b"
+data "Rarity" "Legendary"
+data "Boosts" "RollBonus(SkillCheck, 2);RollBonus(Attack, 1);;RollBonus(SavingThrow, 1)"
+data "Weight" "0.5"
+data "Value" "18000"
+
+    
