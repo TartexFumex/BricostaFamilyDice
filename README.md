@@ -1,4 +1,4 @@
-# PhosFamilyDice - Mod Baldur's Gate 3
+# BricostaFamilyDice - Mod Baldur's Gate 3
 
 Ce mod ajoute deux fonctionnalités principales :
 - **PhosDice** : Un set de textures personnalisées pour les dés d20
@@ -33,9 +33,9 @@ Un objet légendaire avec les caractéristiques suivantes :
 ## Structure du Mod
 
 ```
-PhosFamilyDice/
+BricostaFamilyDice/
 ├── Mods/
-│   └── PhosFamilyDice/
+│   └── BricostaFamilyDice/
 │       ├── meta.lsx                    # Métadonnées du mod
 │       ├── GUI/
 │       │   ├── metadata.lsx            # Métadonnées GUI
@@ -47,27 +47,27 @@ PhosFamilyDice/
 │       │           ├── single_roll.DDS
 │       │           └── double_roll_*.DDS
 │       └── Localization/
-│           ├── English/PhosFamilyDice.xml
-│           └── French/PhosFamilyDice.xml
+│           ├── English/BricostaFamilyDice.xml
+│           └── French/BricostaFamilyDice.xml
 ├── Public/
 │   ├── Game/GUI/Assets/                # Icônes de l'objet
 │   │   ├── ControllerUIIcons/items_png/
 │   │   │   └── Item_LOOT_PhosLuckyDice_Icon.DDS
 │   │   └── Tooltips/ItemIcons/
 │   │       └── Item_LOOT_PhosLuckyDice_Icon.DDS
-│   └── PhosFamilyDice/
+│   └── BricostaFamilyDice/
 │       ├── Assets/
 │       │   ├── Item_LOOT_PhosLuckyDice_Model.GR2   # Modèle 3D compilé
 │       │   ├── Item_LOOT_PhosLuckyDice_Model.xml   # Définition du modèle 3D
 │       │   └── Textures/
 │       │       ├── Icons/
-│       │       │   └── PhosFamilyDice_Icons.dds    # Icône inventaire (atlas)
+│       │       │   └── BricostaFamilyDice_Icons.dds    # Icône inventaire (atlas)
 │       │       └── 3d_maps/
-│       │           ├── PhosFamilyDice_bm.DDS       # Texture basecolor
-│       │           ├── PhosFamilyDice_nm.DDS       # Texture normalmap
-│       │           └── PhosFamilyDice_pm.DDS       # Texture physicalmap
+│       │           ├── BricostaFamilyDice_bm.DDS       # Texture basecolor
+│       │           ├── BricostaFamilyDice_nm.DDS       # Texture normalmap
+│       │           └── BricostaFamilyDice_pm.DDS       # Texture physicalmap
 │       ├── Content/
-│       │   ├── [PAK]_PhosFamilyDice/
+│       │   ├── [PAK]_BricostaFamilyDice/
 │       │   │   └── _merged.lsx         # MaterialBank + TextureBank (3D) + VisualBank
 │       │   └── UI/[PAK]_UI/
 │       │       └── _merged.lsx         # TextureBank (icônes)
@@ -97,7 +97,7 @@ PhosFamilyDice/
 
 Les textures de dés se trouvent dans :
 ```
-Mods/PhosFamilyDice/GUI/Assets/DiceSets/PhosDice/
+Mods/BricostaFamilyDice/GUI/Assets/DiceSets/PhosDice/
 ```
 
 #### Format des fichiers
@@ -112,8 +112,8 @@ Mods/PhosFamilyDice/GUI/Assets/DiceSets/PhosDice/
 
 Il nous faut ensuite ajouter des fichiers de description pour lier les textures du dé au jeu:
 
-- `Public\PhosFamilyDice\CustomDice\CustomDice.lsx`: dans ce fichier on peut décrire le dé avec un nom, une description...
-- `Public\PhosFamilyDice\DLC\DLC.lsx`: dans ce fichier on peut définir un nouveau contenu de jeu
+- `Public\BricostaFamilyDice\CustomDice\CustomDice.lsx`: dans ce fichier on peut décrire le dé avec un nom, une description...
+- `Public\BricostaFamilyDice\DLC\DLC.lsx`: dans ce fichier on peut définir un nouveau contenu de jeu
 
 ### Icône PhosLuckyDice (Item)
 
@@ -122,16 +122,16 @@ L'icône de l'objet se trouve dans trois emplacements :
 |---------|-----------|-------------|
 | `Public\Game\GUI\Assets\ControllerUIIcons\items_png\Item_LOOT_PhosLuckyDice_Icon.DDS` | 144x144 | Il est vu au même endroit que pour l'item ci-dessous mais est affiché uniquement pour les joueurs mannettes |
 | `Public\Game\GUI\Assets\Tooltips\ItemIcons\Item_LOOT_PhosLuckyDice_Icon.DDS` | 380x380 | Icon avec la meilleure qualité - Il est affiché quand on passe la souris sur l'item dans l'inventaire |
-| `Public\PhosFamilyDice\Assets\Textures\Icons\PhosFamilyDice_Icons.dds` | 64x64 | Icône de l'objet dans l'inventaire |
+| `Public\BricostaFamilyDice\Assets\Textures\Icons\BricostaFamilyDice_Icons.dds` | 64x64 | Icône de l'objet dans l'inventaire |
 
 > [!warning]
 >
-> Pour avoir l'icône dans l'inventaire il faut **absolument** crée un 'TextureAtlas' (`Public\PhosFamilyDice\GUI\Icons_Items.lsx`). Les textures atlas sont des fichiers permettant d'importer des tuiles d'assets dans le jeu. 
+> Pour avoir l'icône dans l'inventaire il faut **absolument** crée un 'TextureAtlas' (`Public\BricostaFamilyDice\GUI\Icons_Items.lsx`). Les textures atlas sont des fichiers permettant d'importer des tuiles d'assets dans le jeu. 
 >
 > E.G. j'ai une image de 128x128 contenant 4 photos en 64x64, on peut alors décrire dans le texture atlas ces 4 images pour pouvoir les importer aux endroits appropriés
 >
 >
-> On viendra définir dans `Public\PhosFamilyDice\Content\UI\[PAK]_UI\_merged.lsx` le lien vers l'atlas
+> On viendra définir dans `Public\BricostaFamilyDice\Content\UI\[PAK]_UI\_merged.lsx` le lien vers l'atlas
 
 > [!tip]
 >
@@ -143,19 +143,19 @@ Pour ajouter un modèle 3D personnalisé à l'objet PhosLuckyDice, deux fichiers
 
 | Fichier | Description |
 |---------|-------------|
-| `Public/PhosFamilyDice/Assets/Item_LOOT_PhosLuckyDice_Model.xml` | Définition du modèle 3D (mesh, matériaux, UV mapping) |
-| `Public/PhosFamilyDice/Assets/Item_LOOT_PhosLuckyDice_Model.GR2` | Modèle 3D compilé au format GR2 (Granny 3D) |
+| `Public/BricostaFamilyDice/Assets/Item_LOOT_PhosLuckyDice_Model.xml` | Définition du modèle 3D (mesh, matériaux, UV mapping) |
+| `Public/BricostaFamilyDice/Assets/Item_LOOT_PhosLuckyDice_Model.GR2` | Modèle 3D compilé au format GR2 (Granny 3D) |
 
 #### Configuration dans `_merged.lsx`
 
-Le modèle 3D est référencé dans `Public/PhosFamilyDice/Content/UI/[PAK]_UI/_merged.lsx` via la région `VisualBank` :
+Le modèle 3D est référencé dans `Public/BricostaFamilyDice/Content/UI/[PAK]_UI/_merged.lsx` via la région `VisualBank` :
 
 | Attribut | Valeur | Description |
 |----------|--------|-------------|
 | `ID` | `bb36583d-e193-4998-97dc-d132ace3da29` | UUID unique du visual |
 | `Name` | `Item_LOOT_PhosLuckyDice_Model` | Nom du modèle (sans extension) |
-| `SourceFile` | `Public/PhosFamilyDice/Assets/Item_LOOT_PhosLuckyDice_Model.GR2` | Chemin vers le fichier GR2 |
-| `Template` | `Public/PhosFamilyDice/Assets/Item_LOOT_PhosLuckyDice_Model.Unnamed.0` | Référence au template du mesh |
+| `SourceFile` | `Public/BricostaFamilyDice/Assets/Item_LOOT_PhosLuckyDice_Model.GR2` | Chemin vers le fichier GR2 |
+| `Template` | `Public/BricostaFamilyDice/Assets/Item_LOOT_PhosLuckyDice_Model.Unnamed.0` | Référence au template du mesh |
 | `ObjectID` | `Item_LOOT_PhosLuckyDice_Model.Cube.0` | ID de l'objet mesh dans le modèle |
 | `MaterialID` | `9e2966c7-b61c-4bc1-bef1-a79cb5fde067` | UUID du matériau appliqué |
 
@@ -170,13 +170,13 @@ Le modèle 3D est référencé dans `Public/PhosFamilyDice/Content/UI/[PAK]_UI/_
 
 #### Types de textures
 
-Les textures se trouvent dans `Public/PhosFamilyDice/Assets/Textures/3d_maps/` :
+Les textures se trouvent dans `Public/BricostaFamilyDice/Assets/Textures/3d_maps/` :
 
 | Fichier | Suffixe | Description |
 |---------|---------|-------------|
-| `PhosFamilyDice_bm.DDS` | `_bm` (basecolor map) | Texture de couleur principale (diffuse/albedo) |
-| `PhosFamilyDice_nm.DDS` | `_nm` (normal map) | Carte de normales pour les détails de relief |
-| `PhosFamilyDice_pm.DDS` | `_pm` (physical map) | Carte physique (metallic, roughness, AO) |
+| `BricostaFamilyDice_bm.DDS` | `_bm` (basecolor map) | Texture de couleur principale (diffuse/albedo) |
+| `BricostaFamilyDice_nm.DDS` | `_nm` (normal map) | Carte de normales pour les détails de relief |
+| `BricostaFamilyDice_pm.DDS` | `_pm` (physical map) | Carte physique (metallic, roughness, AO) |
 
 > [!tip]
 > 
@@ -185,7 +185,7 @@ Les textures se trouvent dans `Public/PhosFamilyDice/Assets/Textures/3d_maps/` :
 
 #### Lier les textures au modèle 3D
 
-Pour lier les textures au modèle 3D, il faut créer une entrée dans le fichier `Public/PhosFamilyDice/Content/[PAK]_PhosFamilyDice/_merged.lsx` avec trois régions :
+Pour lier les textures au modèle 3D, il faut créer une entrée dans le fichier `Public/BricostaFamilyDice/Content/[PAK]_BricostaFamilyDice/_merged.lsx` avec trois régions :
 
 ##### 1. TextureBank - Déclaration des textures
 
@@ -198,9 +198,9 @@ Chaque texture doit être déclarée dans la région `TextureBank` :
             <!-- Texture de couleur (basecolor) -->
             <node id="Resource">
                 <attribute id="ID" type="FixedString" value="[UUID_UNIQUE]" />
-                <attribute id="Name" type="LSString" value="PhosFamilyDiceBody" />
+                <attribute id="Name" type="LSString" value="BricostaFamilyDiceBody" />
                 <attribute id="SRGB" type="bool" value="True" />  <!-- True pour basecolor -->
-                <attribute id="SourceFile" type="LSString" value="Public/PhosFamilyDice/Assets/Textures/3d_maps/PhosFamilyDice_bm.DDS" />
+                <attribute id="SourceFile" type="LSString" value="Public/BricostaFamilyDice/Assets/Textures/3d_maps/BricostaFamilyDice_bm.DDS" />
                 <attribute id="Streaming" type="bool" value="True" />
                 <attribute id="Type" type="int32" value="1" />
                 <attribute id="Width" type="int32" value="4096" />
@@ -228,7 +228,7 @@ Le matériau lie les textures ensemble et définit les propriétés de rendu :
             <node id="Resource">
                 <attribute id="ID" type="FixedString" value="[UUID_MATERIAU]" />
                 <attribute id="MaterialType" type="uint8" value="4" />
-                <attribute id="Name" type="LSString" value="PhosFamilyDice_Material" />
+                <attribute id="Name" type="LSString" value="BricostaFamilyDice_Material" />
                 <attribute id="SourceFile" type="LSString" value="Public/Shared/Assets/Materials/Base/Base_AlphaTest.lsf" />
                 <children>
                     <!-- Référence vers la texture basecolor -->
@@ -267,7 +267,7 @@ Le matériau est ensuite appliqué au modèle via la région `VisualBank` :
             <node id="Resource">
                 <attribute id="ID" type="FixedString" value="[UUID_VISUAL]" />
                 <attribute id="Name" type="LSString" value="Item_LOOT_PhosLuckyDice_Model" />
-                <attribute id="SourceFile" type="LSString" value="Public/PhosFamilyDice/Assets/Item_LOOT_PhosLuckyDice_Model.GR2" />
+                <attribute id="SourceFile" type="LSString" value="Public/BricostaFamilyDice/Assets/Item_LOOT_PhosLuckyDice_Model.GR2" />
                 <children>
                     <node id="Objects">
                         <attribute id="ObjectID" type="FixedString" value="Item_LOOT_PhosLuckyDice_Model.Cube.0" />
@@ -289,9 +289,9 @@ Le matériau est ensuite appliqué au modèle via la région `VisualBank` :
 
 1. **Créer les textures** dans un logiciel de création (Substance Painter, Photoshop, etc.)
 2. **Exporter en DDS** avec les suffixes appropriés (`_bm`, `_nm`, `_pm`)
-3. **Placer les fichiers** dans `Public/PhosFamilyDice/Assets/Textures/3d_maps/`
+3. **Placer les fichiers** dans `Public/BricostaFamilyDice/Assets/Textures/3d_maps/`
 4. **Générer les UUID** pour chaque texture et le matériau via BG3 Modder's Multitool
-5. **Créer/Mettre à jour** `[PAK]_PhosFamilyDice/_merged.lsx` avec :
+5. **Créer/Mettre à jour** `[PAK]_BricostaFamilyDice/_merged.lsx` avec :
    - Les déclarations des textures dans `TextureBank`
    - La définition du matériau dans `MaterialBank`
    - La liaison dans `VisualBank`
@@ -312,14 +312,14 @@ Le matériau est ensuite appliqué au modèle via la région `VisualBank` :
 >
 > Si la checkbox "handle" est cochée les UUID générées doivent être utilisées pour les traductions
 
-### `Public/PhosFamilyDice/CustomDice/CustomDice.lsx`
+### `Public/BricostaFamilyDice/CustomDice/CustomDice.lsx`
 
 Définit le **set de dés personnalisé** :
 - **Name** : `PhosDice`
 - **UUID** : `a1b2c3d4-e5f6-7890-abcd-ef1234567890`
 - **DisplayName** / **Description** : Références vers les textes de localisation
 
-### `Public/PhosFamilyDice/RootTemplates/merged.lsx`
+### `Public/BricostaFamilyDice/RootTemplates/merged.lsx`
 
 Définit le **template de l'objet PhosLuckyDice** :
 - **MapKey** : `308555cb-3b93-4243-b6df-b8cca02d335b`
@@ -327,7 +327,7 @@ Définit le **template de l'objet PhosLuckyDice** :
 - **Icon** : `Item_LOOT_PhosLuckyDice_Icon`
 - **Stats** : `Item_LOOT_PhosLuckyDice`
 
-### `Public/PhosFamilyDice/Stats/Generated/Data/Armor.txt`
+### `Public/BricostaFamilyDice/Stats/Generated/Data/Armor.txt`
 
 Définit les **statistiques** de l'objet :
 ```txt
@@ -340,7 +340,7 @@ data "Weight" "0.5"
 data "Value" "4000"
 ```
 
-### `Localization/*/PhosFamilyDice.xml`
+### `Localization/*/BricostaFamilyDice.xml`
 
 Fichiers de **traduction** (Anglais/Français) :
 - Nom et description de PhosLuckyDice
@@ -402,7 +402,7 @@ L'objet est ajouté à la table de trésor `TUT_Chest_Potions` (coffres du tutor
 
 > [!note]
 >
-> Les textures 3D du modèle PhosLuckyDice ont été ajoutées dans `Public/PhosFamilyDice/Assets/Textures/3d_maps/`
+> Les textures 3D du modèle PhosLuckyDice ont été ajoutées dans `Public/BricostaFamilyDice/Assets/Textures/3d_maps/`
 >
 > Aucune image de mod n'a été intégrée
 
