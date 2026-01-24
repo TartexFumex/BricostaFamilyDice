@@ -1,14 +1,14 @@
 # BricostaFamilyDice - Mod Baldur's Gate 3
 
 Ce mod ajoute deux fonctionnalités principales :
-- **PhosDice** : Un set de textures personnalisées pour les dés d20
-- **PhosLuckyDice** : Un nouvel item permettant d'obtenir un boost passif de jet de dé (si équipé)
+- **BricostaDice** : Un set de textures personnalisées pour les dés d20
+- **BricostaFamilyDice** : Un nouvel item permettant d'obtenir un boost passif de jet de dé (si équipé)
 
 ---
 
 ## Fonctionnalités
 
-### PhosDice - Textures de Dés Personnalisées
+### BricostaDice - Textures de Dés Personnalisées
 
 Un set complet de textures pour le dé d20 incluant :
 - `d20.DDS` - Texture principale du dé
@@ -17,12 +17,12 @@ Un set complet de textures pour le dé d20 incluant :
 - `single_roll.DDS` - Animation de lancer simple
 - `double_roll_1.DDS` / `double_roll_2.DDS` - Animations de double lancer
 
-### PhosLuckyDice - Dé Porte-Bonheur
+### BricostaFamilyDice - Dé Porte-Bonheur
 
 Un objet légendaire avec les caractéristiques suivantes :
 - **Rareté** : Légendaire
 - **Poids** : 0.5
-- **Valeur** : 18000 or
+- **Valeur** : 8000 or
 - **Effets** :
   - `+2` aux jets de compétences (SkillCheck)
   - `+1` aux jets d'attaque (Attack)
@@ -93,7 +93,7 @@ BricostaFamilyDice/
 - **BG3 Modder's Multitool**
 - **NVIDIA Texture Tools** ou équivalent pour exporter en DDS
 
-### Textures PhosDice (Set de Dés)
+### Textures BricostaDice (Set de Dés)
 
 Les textures de dés se trouvent dans :
 ```
@@ -115,7 +115,7 @@ Il nous faut ensuite ajouter des fichiers de description pour lier les textures 
 - `Public\BricostaFamilyDice\CustomDice\CustomDice.lsx`: dans ce fichier on peut décrire le dé avec un nom, une description...
 - `Public\BricostaFamilyDice\DLC\DLC.lsx`: dans ce fichier on peut définir un nouveau contenu de jeu
 
-### Icône PhosLuckyDice (Item)
+### Icône BricostaFamilyDice (Item)
 
 L'icône de l'objet se trouve dans trois emplacements :
 | Fichier | Dimension | Description |
@@ -137,14 +137,14 @@ L'icône de l'objet se trouve dans trois emplacements :
 >
 > Les fichiers doivent tous avoir le même non au risque de ne pas avoir de texture en jeu
 
-### Modèle 3D PhosLuckyDice
+### Modèle 3D BricostaFamilyDice
 
-Pour ajouter un modèle 3D personnalisé à l'objet PhosLuckyDice, deux fichiers sont nécessaires :
+Pour ajouter un modèle 3D personnalisé à l'objet BricostaFamilyDice, deux fichiers sont nécessaires :
 
 | Fichier | Description |
 |---------|-------------|
-| `Public/BricostaFamilyDice/Assets/Item_LOOT_PhosLuckyDice_Model.xml` | Définition du modèle 3D (mesh, matériaux, UV mapping) |
-| `Public/BricostaFamilyDice/Assets/Item_LOOT_PhosLuckyDice_Model.GR2` | Modèle 3D compilé au format GR2 (Granny 3D) |
+| `Public/BricostaFamilyDice/Assets/Item_LOOT_BricostaFamilyDice_Model.xml` | Définition du modèle 3D (mesh, matériaux, UV mapping) |
+| `Public/BricostaFamilyDice/Assets/Item_LOOT_BricostaFamilyDice_Model.GR2` | Modèle 3D compilé au format GR2 (Granny 3D) |
 
 #### Configuration dans `_merged.lsx`
 
@@ -153,10 +153,10 @@ Le modèle 3D est référencé dans `Public/BricostaFamilyDice/Content/UI/[PAK]_
 | Attribut | Valeur | Description |
 |----------|--------|-------------|
 | `ID` | `bb36583d-e193-4998-97dc-d132ace3da29` | UUID unique du visual |
-| `Name` | `Item_LOOT_PhosLuckyDice_Model` | Nom du modèle (sans extension) |
-| `SourceFile` | `Public/BricostaFamilyDice/Assets/Item_LOOT_PhosLuckyDice_Model.GR2` | Chemin vers le fichier GR2 |
-| `Template` | `Public/BricostaFamilyDice/Assets/Item_LOOT_PhosLuckyDice_Model.Unnamed.0` | Référence au template du mesh |
-| `ObjectID` | `Item_LOOT_PhosLuckyDice_Model.Cube.0` | ID de l'objet mesh dans le modèle |
+| `Name` | `Item_LOOT_BricostaFamilyDice_Model` | Nom du modèle (sans extension) |
+| `SourceFile` | `Public/BricostaFamilyDice/Assets/Item_LOOT_BricostaFamilyDice_Model.GR2` | Chemin vers le fichier GR2 |
+| `Template` | `Public/BricostaFamilyDice/Assets/Item_LOOT_BricostaFamilyDice_Model.Unnamed.0` | Référence au template du mesh |
+| `ObjectID` | `Item_LOOT_BricostaFamilyDice_Model.Cube.0` | ID de l'objet mesh dans le modèle |
 | `MaterialID` | `9e2966c7-b61c-4bc1-bef1-a79cb5fde067` | UUID du matériau appliqué |
 
 #### Workflow de création du modèle 3D
@@ -267,10 +267,10 @@ Le matériau est ensuite appliqué au modèle via la région `VisualBank` :
             <node id="Resource">
                 <attribute id="ID" type="FixedString" value="[UUID_VISUAL]" />
                 <attribute id="Name" type="LSString" value="Item_LOOT_PhosLuckyDice_Model" />
-                <attribute id="SourceFile" type="LSString" value="Public/BricostaFamilyDice/Assets/Item_LOOT_PhosLuckyDice_Model.GR2" />
+                <attribute id="SourceFile" type="LSString" value="Public/BricostaFamilyDice/Assets/Item_LOOT_BricostaFamilyDice_Model.GR2" />
                 <children>
                     <node id="Objects">
-                        <attribute id="ObjectID" type="FixedString" value="Item_LOOT_PhosLuckyDice_Model.Cube.0" />
+                        <attribute id="ObjectID" type="FixedString" value="Item_LOOT_BricostaFamilyDice_Model.Cube.0" />
                         <attribute id="MaterialID" type="FixedString" value="[UUID_MATERIAU]" />
                     </node>
                 </children>
@@ -315,7 +315,7 @@ Le matériau est ensuite appliqué au modèle via la région `VisualBank` :
 ### `Public/BricostaFamilyDice/CustomDice/CustomDice.lsx`
 
 Définit le **set de dés personnalisé** :
-- **Name** : `PhosDice`
+- **Name** : `BricostaDice`
 - **UUID** : `a1b2c3d4-e5f6-7890-abcd-ef1234567890`
 - **DisplayName** / **Description** : Références vers les textes de localisation
 
@@ -324,27 +324,27 @@ Définit le **set de dés personnalisé** :
 Définit le **template de l'objet PhosLuckyDice** :
 - **MapKey** : `308555cb-3b93-4243-b6df-b8cca02d335b`
 - **Name** : `PhosLuckyDice`
-- **Icon** : `Item_LOOT_PhosLuckyDice_Icon`
-- **Stats** : `Item_LOOT_PhosLuckyDice`
+- **Icon** : `Item_LOOT_BricostaFamilyDice_Icon`
+- **Stats** : `Item_LOOT_BricostaFamilyDice`
 
 ### `Public/BricostaFamilyDice/Stats/Generated/Data/Armor.txt`
 
 Définit les **statistiques** de l'objet :
 ```txt
-new entry "Item_LOOT_PhosLuckyDice"
+new entry "Item_LOOT_BricostaFamilyDice"
 type "item"
 using "ARM_Ring_Gold"
 data "Rarity" "Legendary"
-data "Boosts" "RollBonus(SkillCheck, 1);RollBonus(Attack, 1);RollBonus(SavingThrow, 1)"
+data "Boosts" "RollBonus(SkillCheck, 2);RollBonus(Attack, 1);RollBonus(SavingThrow, 1)"
 data "Weight" "0.5"
-data "Value" "4000"
+data "Value" "8000"
 ```
 
 ### `Localization/*/BricostaFamilyDice.xml`
 
 Fichiers de **traduction** (Anglais/Français) :
-- Nom et description de PhosLuckyDice
-- Nom et description de PhosDice
+- Nom et description de BricostaFamilyDice
+- Nom et description de BricostaDice
 
 
 
