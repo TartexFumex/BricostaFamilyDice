@@ -1,0 +1,128 @@
+name: CI Custom Windows 2025
+
+on:
+  push:
+    branches: [ "main", "test-ci/main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    # C'est ici que l'on définit l'environnement
+    runs-on: windows-2025
+    permissions:
+      contents: write  # Required to push tags
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0  # Fetch all history for tags
+      
+      - name: Extract and convert version from meta.lsx
+        id: version
+        shell: python
+        run: |
+          import xml.etree.ElementTree as ET
+          import os
+          import subprocess
+          
+          # Parse meta.lsx
+          tree = ET.parse('Mods/BricostaFamilyDice/meta.lsx')
+          root = tree.getroot()
+          
+          # Find Version64 attribute
+          version64_elem = root.find(".//attribute[@id='Version64']")
+          ver64 = int(version64_elem.get('value'))
+          
+          # Convert to readable version
+          major = (ver64 >> 55) & 0xFF
+          minor = (ver64 >> 47) & 0xFF
+          patch = (ver64 >> 31) & 0xFFFF
+          build = ver64 & 0x7FFFFFFF
+          
+          version_str = f"{major}.{minor}.{patch}.{build}"
+          print(f"Current version: {version_str}")
+          
+          # Get latest tag
+          try:
+              result = subprocess.run(['git', 'describe', '--tags', '--abbrev=0'], 
+                                    capture_output=True, text=True, check=False)
+              if result.returncode == 0:
+                  latest_tag = result.stdout.strip().lstrip('v')
+                  print(f"Latest tag: v{latest_tag}")
+                  
+                  # Compare versions
+                  current_parts = [int(x) for x in version_str.split('.')]
+                  latest_parts = [int(x) for x in latest_tag.split('.')]
+                  
+                  should_build = current_parts > latest_parts
+              else:
+                  # No tags exist yet
+                  print("No existing tags found")
+                  should_build = True
+          except Exception as e:
+              print(f"Error checking tags: {e}")
+              should_build = True
+          
+          # Set output for next steps
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              f.write(f"version={version_str}\n")
+              f.write(f"tag=v{version_str}\n")
+              f.write(f"should_build={'true' if should_build else 'false'}\n")
+          
+          if not should_build:
+              print("WARNING: Version is not greater than latest tag. Skipping build.")
+          else:
+              print("SUCCESS: Version is greater than latest tag. Proceeding with build.")
+
+      - name: Download LSLib
+        if: steps.version.outputs.should_build == 'true'
+        shell: bash
+        run: |
+            URL=$(curl -s https://api.github.com/repos/Norbyte/lslib/releases/latest | jq -r '.assets[] | select(.name | contains("ExportTool")) | .browser_download_url')
+            curl -L -o ExportTool.zip "$URL"
+            unzip ExportTool.zip -d ../Tools
+
+      - name: Convert lsx to lsf files
+        if: steps.version.outputs.should_build == 'true'
+        shell: powershell
+        run: |
+            ${{ github.workspace }}\..\Tools\Packed\Tools\Divine.exe -g "bg3" -s ${{ github.workspace }} -d ${{ github.workspace }} -a convert-resources -i lsx -o lsf
+    
+      - name: Archive the mod
+        if: steps.version.outputs.should_build == 'true'
+        shell: powershell
+        run: |
+            ${{ github.workspace }}\..\Tools\Packed\Tools\Divine.exe -g "bg3" -s ${{ github.workspace }} -d ${{ github.workspace }}\${{ github.event.repository.name }}.pak -a create-package
+      
+      - name: Check if tag exists
+        if: steps.version.outputs.should_build == 'true'
+        id: check_tag
+        shell: bash
+        run: |
+          git fetch --tags
+          if git rev-parse "v${{ steps.version.outputs.version }}" >/dev/null 2>&1; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Create and push tag
+        if: steps.version.outputs.should_build == 'true' && steps.check_tag.outputs.exists == 'false'
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag -a "${{ steps.version.outputs.tag }}" -m "Release ${{ steps.version.outputs.version }}"
+          git push origin "${{ steps.version.outputs.tag }}"
+
+      - name: Create a GitHub Release
+        if: steps.version.outputs.should_build == 'true' && steps.check_tag.outputs.exists == 'false'
+        uses: softprops/action-gh-release@v1
+        with:
+            tag_name: ${{ steps.version.outputs.tag }}
+            name: Release ${{ steps.version.outputs.version }}
+            body: Automated release of version ${{ steps.version.outputs.version }}.
+            files: ${{ github.event.repository.name }}.pak
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
