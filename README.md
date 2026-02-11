@@ -52,13 +52,13 @@ BricostaFamilyDice/
 ├── Public/
 │   ├── Game/GUI/Assets/                # Icônes de l'objet
 │   │   ├── ControllerUIIcons/items_png/
-│   │   │   └── Item_LOOT_PhosLuckyDice_Icon.DDS
+│   │   │   └── Item_LOOT_BricostaFamilyDice_Icon.DDS
 │   │   └── Tooltips/ItemIcons/
-│   │       └── Item_LOOT_PhosLuckyDice_Icon.DDS
+│   │       └── Item_LOOT_BricostaFamilyDice_Icon.DDS
 │   └── BricostaFamilyDice/
 │       ├── Assets/
-│       │   ├── Item_LOOT_PhosLuckyDice_Model.GR2   # Modèle 3D compilé
-│       │   ├── Item_LOOT_PhosLuckyDice_Model.xml   # Définition du modèle 3D
+│       │   ├── Item_LOOT_BricostaFamilyDice_Model.GR2   # Modèle 3D compilé
+│       │   ├── Item_LOOT_BricostaFamilyDice_Model.xml   # Définition du modèle 3D
 │       │   └── Textures/
 │       │       ├── Icons/
 │       │       │   └── BricostaFamilyDice_Icons.dds    # Icône inventaire (atlas)
