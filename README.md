@@ -40,7 +40,7 @@ BricostaFamilyDice/
 │       ├── GUI/
 │       │   ├── metadata.lsx            # Métadonnées GUI
 │       │   └── Assets/DiceSets/
-│       │       └── PhosDice/           # Textures des dés
+│       │       └── BricostaDice/           # Textures des dés
 │       │           ├── d20.DDS
 │       │           ├── d20_1.DDS ... d20_20.DDS
 │       │           ├── d20_faceCover.DDS
